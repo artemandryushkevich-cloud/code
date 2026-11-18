@@ -2,10 +2,11 @@ import z, { minLength } from "zod";
 
 export const PostSchema = z.object({
   id: z.number(),
- content: z.string().min(minLength: 2),
+  content: z.string().min({ minLength: 2 }),
+  userId: z.number(),
 });
 
-export const PostCreateSchema = PostSchema.omit({ id: true});
+export const PostCreateSchema = PostSchema.omit({ id: true, userId: true });
 
 
 
